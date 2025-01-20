@@ -96,15 +96,6 @@ try:
         "mysql+mysqlconnector://root:root@localhost:3306/" + db)
     engine.connect()
     print("Database Connected")
-except Exception as e:
-    print(e)
-existing_tables, inspector = getTables(engine)
-print("Existing Tables:", existing_tables)
-
-createTables(engine, inspector, db, distinct_countries, existing_tables)
-
-existing_tables, inspector = getTables(engine)
-print("Existing Tables:", existing_tables)
 
 for country in distinct_countries:
     my_filt = (df['country'] == country)
