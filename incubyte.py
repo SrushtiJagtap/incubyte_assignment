@@ -19,6 +19,9 @@ def createTable(tablename):
         vaccinationType = Column(String(5))
         doctorConsulted = Column(String(255))
         state = Column(String(5))
+        country = Column(String(5))
+        dateOfBirth = Column(Date)
+        activeCustomer = Column(String(1))
 
     return CountryName
 
