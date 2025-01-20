@@ -101,7 +101,7 @@ except Exception as e:
 existing_tables, inspector = getTables(engine)
 print("Existing Tables:", existing_tables)
 
-createTables(engine,  db, distinct_countries, existing_tables)
+createTables(engine, inspector, db, distinct_countries, existing_tables)
 
 existing_tables, inspector = getTables(engine)
 print("Existing Tables:", existing_tables)
