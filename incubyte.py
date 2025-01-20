@@ -98,3 +98,24 @@ try:
     print("Database Connected")
 except Exception as e:
     print(e)
+existing_tables, inspector = getTables(engine)
+print("Existing Tables:", existing_tables)
+
+createTables(engine,  db, distinct_countries, existing_tables)
+
+existing_tables, inspector = getTables(engine)
+print("Existing Tables:", existing_tables)
+
+for country in distinct_countries:
+    my_filt = (df['country'] == country)
+    try:
+        print("Inserting Records in " + country)
+
+        if country in existing_tables:
+            df[my_filt].to_sql(name=country, con=engine,
+                               if_exists='replace', index=False)
+            print("Inserted")
+        else:
+            print(country + " table does Not exists")
+    except Exception as e:
+        print(e)
