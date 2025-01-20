@@ -91,3 +91,10 @@ print("\nDistinct Countries:/n",distinct_countries)
 
 print()
 db = "queries"
+try:
+    engine = create_engine(
+        "mysql+mysqlconnector://root:root@localhost:3306/" + db)
+    engine.connect()
+    print("Database Connected")
+except Exception as e:
+    print(e)
